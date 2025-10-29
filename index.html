@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>LuaMods Arizona RP — Скрипты, Читы, Боты</title>
   <meta name="description" content="Купить Lua скрипты, читы и боты для Arizona RP. Автоферма, ESP, кастомные моды. Быстрая доставка." />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎮</text></svg>">
+  <link rel="icon" href="https://i.postimg.cc/0yN4X5hJ/autofarm-arizona.jpg" type="image/jpg">
   <style>
     :root {
       --bg: #0f0f0f;
@@ -90,7 +90,7 @@
   <section id="contacts">
     <h2>Контакты</h2>
     <p style="text-align:center;">
-      Telegram: <a href="https://t.me/luamods_arizona" style="color:var(--accent);">@luamods_arizona</a><br>
+      Telegram: <a href="https://t.me/luamods_arizona_bot" style="color:var(--accent);">@luamods_arizona_bot</a><br>
       Email: <a href="mailto:support@luamods.ru" style="color:var(--accent);">support@luamods.ru</a>
     </p>
   </section>
@@ -212,13 +212,14 @@
       saveCart();
     }
 
+    // ИЗМЕНЕНО: Оплата через БОТА
     document.getElementById('checkout').onclick = () => {
       if (cart.length === 0) return alert('Корзина пуста!');
       const order = cart.map(item => `${item.name} × ${item.quantity} = ${item.price * item.quantity} ₽`).join('\n');
       const total = cart.reduce((s, i) => s + i.price * i.quantity, 0);
-      const message = encodeURIComponent(`Новый заказ:\n${order}\n\nИтого: ${total} ₽\n\nОплатить: @luamods_arizona`);
-      window.open(`https://t.me/luamods_arizona?text=${message}`, '_blank');
-      alert('Переход в Telegram для оплаты...');
+      const message = encodeURIComponent(`Новый заказ:\n${order}\n\nИтого: ${total} ₽\n\nОплатить: @luamods_arizona_bot`);
+      window.open(`https://t.me/luamods_arizona_bot?text=${message}`, '_blank');
+      alert('Переход к боту для оплаты...');
     };
 
     document.getElementById('cart-icon').onclick = () => document.getElementById('cart-modal').style.display = 'flex';
